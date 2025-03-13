@@ -17,7 +17,7 @@
 .chartWrapper {
     width: 80%;
     max-width: 1000px;
-    height: 60vh; /* Adjusting height dynamically */
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -19,9 +19,8 @@ const data = {
         backgroundColor: "rgb(255, 0, 0)",
         borderColor: "#ff0000",
         borderRadius: "5px",
-        pointBackgroundColor: "#fff",
         borderWidth: 6, // Make the line THICKER
-        tension: 0.4, // Optional: Adjusts line smoothness (0 = straight, 1 = curved)
+        tension: 0.4, // Adjusts line smoothness
         pointRadius: 8, // Larger points
         pointHoverRadius: 10, // Even bigger points on hover
         pointBorderWidth: 2, // Thicker border around points
@@ -34,22 +33,19 @@ const data = {
 const options = {
     responsive: true,
     maintainAspectRatio: false,
-    scales: {
-    y: { display: true },
-    x: { display: true },
-    },
+
 
     animations: {
         tension: {
         duration: 1500,
         easing: 'easeInOutElastic',
         from: 0.5,
-        to: 0 // End with a straight line
+        to: 0
         }
     },
 
     hover: {
-        mode: 'nearest', // Determines how elements respond to hover
+        mode: 'nearest',
         animationDuration: 400 // Hover animation speed (in ms)
     },
 
@@ -61,6 +57,9 @@ const options = {
         }
     },
     scales: {
+        y: { display: true },
+        x: { display: true },
+        },
         x: {
         ticks: {
             color: '#ffffff', // White text for X-axis labels
@@ -78,8 +77,7 @@ const options = {
             weight: 'bold'
             }
         }
-        }
-    },
+        },
     plugins: {
         legend: {
         labels: {

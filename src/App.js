@@ -3,14 +3,13 @@ import LandingPage from "./pages/LandingPage";
 import ComparisonPage from "./pages/ComparisonPage";
 import TimelinePage from "./pages/TimelinePage";
 import styles from "./styles/App.module.css";
-import logo from "./assets/revvy-logo.png"; // Import the logo
+import logo from "./assets/revvy-logo.png"; 
 
 function App() {
   return (
     <Router>
       <div className={styles.appContainer}>
         <nav className={styles.sidebar}>
-          {/* Logo at the top, separate from nav links */}
           <div className={styles.logoContainer}>
             <img src={logo} alt="Revvy Logo" className={styles.logo} />
           </div>
