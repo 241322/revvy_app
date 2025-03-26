@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+## Author: [Xander Poalses](https://github.com/241322)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Formative Assessment 1: React Application for Data Visualisation with ChartJS
 
-## Available Scripts
+For car enthusiasts, researchers, and potential buyers who wish to examine and contrast vehicles using actual data, this project is a VIN-powered vehicle data explorer. Data is extracted to:
 
-In the project directory, you can run:
+- Look up a car using its VIN
 
-### `npm start`
+- Present technical details in a clear, engaging format.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Examine two separate cars side by side.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- See a vehicle's historical model year timeline and MSRP trends.
 
-### `npm test`
+It is intended for users who wish to research the historical development of automobiles or make well-informed decisions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Appendix
 
-### `npm run build`
+#### API Source
+- This app uses the [Car API v2](https://rapidapi.com/apininjas/api/car-api2) from RapidAPI to fetch vehicle data such as VIN details, trims, and specifications.
+- Note: Non-paying users are limited to VINs from **2015–2020**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+/pages
+  LandingPage.jsx         // VIN search and single vehicle data
+  ComparisonPage.jsx      // Compare two vehicles
+  TimelinePage.jsx        // Visual timeline of trims and MSRP
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+/styles
+  LandingPage.module.css
+  ComparisonPage.module.css
+  TimelinePage.module.css
+```
 
-### `npm run eject`
+#### Test VINs to Try
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `1GTG6CEN0L1139305` (GMC Canyon 2020)
+- `5UXKR0C5XF0K56785` (BMW X5 2015)
+- `WVGZZZ7PZHD006123` (Volkswagen Touareg 2017)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Future Ideas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Add user authentication and save vehicle history
+- Export comparison results as PDF
+- Add live exchange rate for MSRP conversion
+- Add ability to search for Make and Model across all pages
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## API Reference
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Get data by via VIN
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```http
+  GET /api/vin/{vin}
+```
 
-### Code Splitting
+#### Get data via Make and Model
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```http
+  GET /api/trims?make={make}&model={model}
+```
 
-### Analyzing the Bundle Size
+| Parameter  | Type     | Description                          |
+|------------|----------|--------------------------------------|
+| `api_key`  | `string` | "b0cfcdeaacmshfbeaeb3c7c2f25ap129777jsn7bd8637ddc5f" |
+| `vin`      | `string` | "1GTG6CEN0L1139305" |
+| `make`     | `string` | "GMC" |
+| `model`    | `string` | "Canyon" |
+| `year`     | `number` | 2020 |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Features
 
-### Making a Progressive Web App
+- VIN-Based Vehicle Lookup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Real-Time Vehicle Comparison
 
-### Advanced Configuration
+- Timeline Visualization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Interactive Charts & UI
 
-### Deployment
+##  Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project relies on several modern web technologies and libraries to provide a responsive, data-driven user experience:
 
-### `npm run build` fails to minify
+| Dependency                | Description                                                                 |
+|---------------------------|-----------------------------------------------------------------------------|
+| **react**                 | Core library for building the user interface                                |
+| **react-dom**             | Renders React components into the DOM                                       |
+| **react-router-dom**      | Enables client-side routing across pages                                    |
+| **react-scripts**         | Scripts and configuration from Create React App                             |
+| **axios**                 | Promise-based HTTP client for calling the vehicle API                       |
+| **chart.js**              | Powerful charting library used for data visualization                       |
+| **react-chartjs-2**       | React wrapper for Chart.js components                                       |
+| **web-vitals**            | Collects and reports essential performance metrics                          |
+| **@testing-library/react** | Tools for testing React components                                          |
+| **@testing-library/jest-dom** | Custom matchers for better DOM assertions in tests                     |
+| **@testing-library/user-event** | Simulates user interactions in tests                                 |
+| **@testing-library/dom**  | Base utilities for testing DOM nodes                                        |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+These dependencies are defined in the [`package.json`](./package.json) file and can be installed with:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm start
+```
