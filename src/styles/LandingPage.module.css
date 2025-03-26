@@ -55,7 +55,22 @@
     background-color: #afafaf19;
     border-radius: 5px;
     padding: 1rem 2rem;
-    height: 600px;
+    height: fit-content;
     /* border: 1px solid rgb(255, 255, 255); */
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.336);
+}
+
+.statBox {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+
+.statBox:hover {
+    transform: scale(1.05);
+    color: #ff0000;
 }

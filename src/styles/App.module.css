@@ -6,6 +6,11 @@
     background-color: #1a1a1a;
     color: white;
     background-image: url("../assets/landingWallpaper.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
   }
   
   /* Sidebar Collapsed State */

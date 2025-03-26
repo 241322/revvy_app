@@ -61,3 +61,18 @@
     align-items: center;
     text-align: left;
 }
+
+.statBox {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+
+.statBox:hover {
+    transform: scale(1.05);
+    color: #ff0000;
+}
