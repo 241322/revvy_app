@@ -3,8 +3,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #00000002;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background-color: rgba(26, 26, 26, 0.3);
+    backdrop-filter: blur(60px) saturate(180%);
+    -webkit-backdrop-filter: blur(60px) saturate(180%);
 }
 
 .heading {
@@ -23,14 +26,68 @@
     justify-content: center;
 }
 
-.searchBar {
+.searchContainer {
+    position: relative;
     width: 50%;
     max-width: 600px;
+    margin: 20px auto;
+}
+
+.searchBar {
+    width: 100%;
     padding: 15px;
     border: 2px solid #ccc;
     border-radius: 8px;
     font-size: 1.2rem;
     text-align: center;
     display: block;
-    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+.suggestionsDropdown {
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestionItem {
+    padding: 10px 12px;
+    cursor: pointer;
+    color: #222222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+.suggestionItem:last-child {
+    border-bottom: none;
+}
+
+.suggestionItem:hover {
+    background: #d9d9d9;
+}
+
+.suggestionText {
+    flex: 1;
+    text-align: left;
+    font-size: 0.76rem;
+}
+
+.suggestionYear {
+    color: #444444;
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 0.76rem;
 }

@@ -6,12 +6,13 @@ This is a React-based single-page application (SPA) that enables users to fetch 
 
 ## Technologies Used
 
-- **Framework:** React (Vite build system)
+- **Framework:** React 19 (Create React App build system)
 - **Charting Library:** Chart.js via `react-chartjs-2`
-- **Data Source:** Public Vehicle API (VIN-based queries)
+- **Data Source:** Car API v2 from RapidAPI (VIN-based and Make/Model queries)
 - **Routing:** React Router DOM
 - **State Management:** React Hooks (`useState`, `useEffect`)
-- **Styling:** Tailwind CSS
+- **HTTP Client:** Axios
+- **Styling:** CSS Modules
 
 ## Page Structure and Data Flow
 
@@ -26,24 +27,25 @@ This is a React-based single-page application (SPA) that enables users to fetch 
 
 - Fetches and displays vehicle information based on the provided VIN.
 - Key vehicle attributes (e.g., make, model, year, engine) are rendered as structured data.
-- No chart or graphical visualisation is used on this page.
-- Designed for clear, text-based vehicle comparisons.
-- A bar chart from chart.js will also be found there
+- Includes a **bar chart** visualizing engine displacement, gearbox speeds, and cylinders for each vehicle.
+- Designed for side-by-side vehicle comparisons in a two-column layout.
 
 ### 3. Timeline Page
 
-- The only page in the application containing visual data charts.
+- Searches by Make and Model (not VIN).
 - Displays two **line charts** generated using Chart.js:
-  - **Model Year vs. Price** chart: Visualises historical pricing data for the selected model.
-  - **Comparative Pricing Trends**: If applicable, a secondary chart compares price evolution across multiple model years or related VINs.
+  - **Model Year vs. Trim Count** chart: Visualizes the number of trim levels released per year for the selected model.
+  - **Average MSRP Trends**: Shows price evolution across model years.
 - Data is fetched from the API and then processed into chart-friendly datasets using React.
 
 ## Assumptions and Limitations
 
 - The application is frontend-only and does not include backend authentication or data caching.
-- The public API may only support a limited VIN year range (e.g., 2015–2020).
+- API keys are stored in environment variables (.env file) for security.
+- The Car API v2 free tier only supports VINs from the 2015–2020 range.
 - Chart rendering is conditional on the availability of valid pricing data from the API.
-- VINs outside of the supported range will return an error message handled via UI notifications.
+- VINs outside of the supported range will return an error message handled via UI alert notifications.
+- MSRP values are displayed in USD as returned by the API.
 
 ## Summary
 

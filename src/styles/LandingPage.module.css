@@ -3,6 +3,7 @@
 .container {
     text-align: center;
     padding: 40px;
+    min-height: 100vh;
 }
 
 .heading {
@@ -23,6 +24,11 @@
     justify-content: center;
     gap: 10px;
     margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.inputWrapper {
+    position: relative;
 }
 
 .input {
@@ -30,6 +36,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .button {
@@ -52,16 +59,21 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #afafaf19;
+    background-color: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(60px) saturate(180%);
+    -webkit-backdrop-filter: blur(60px) saturate(180%);
     border-radius: 5px;
     padding: 1rem 2rem;
     height: fit-content;
-    /* border: 1px solid rgb(255, 255, 255); */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.336);
 }
 
 .statBox {
-    background-color: #1a1a1a;
+    background-color: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(60px) saturate(180%);
+    -webkit-backdrop-filter: blur(60px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
     padding: 10px;
     border-radius: 8px;
@@ -73,4 +85,53 @@
 .statBox:hover {
     transform: scale(1.05);
     color: #ff0000;
+}
+
+/* Suggestions Dropdown */
+.suggestionsDropdown {
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.suggestionItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    cursor: pointer;
+    color: #222222;
+    border-bottom: 1px solid #cccccc;
+    transition: background-color 0.2s ease;
+    background-color: #ffffff;
+}
+
+.suggestionItem:hover {
+    background-color: #d9d9d9;
+}
+
+.suggestionItem:last-child {
+    border-bottom: none;
+}
+
+.suggestionText {
+    flex: 1;
+    text-align: left;
+    font-size: 0.76rem;
+}
+
+.suggestionYear {
+    font-weight: bold;
+    color: #444444;
+    font-size: 0.76rem;
+    margin-left: 10px;
 }
