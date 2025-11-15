@@ -2,17 +2,19 @@
 
 # Formative Assessment 1: React Application for Data Visualisation with ChartJS
 
-For car enthusiasts, researchers, and potential buyers who wish to examine and contrast vehicles using actual data, this project is a VIN-powered vehicle data explorer. Data is extracted to:
+For car enthusiasts, researchers, and potential buyers who wish to examine and contrast vehicles using actual data, this project is a comprehensive vehicle data explorer. The application provides:
 
-- Look up a car using its VIN
+- **Flexible Vehicle Lookup** - Search by VIN number or Make/Model with intelligent autocomplete suggestions
 
-- Present technical details in a clear, engaging format.
+- **Smart Search Experience** - Real-time dropdown suggestions as you type, showing available trims and years
 
-- Examine two separate cars side by side.
+- **Side-by-Side Comparison** - Examine two vehicles with detailed specifications and visual charts
 
-- See a vehicle's historical model year timeline and MSRP trends.
+- **Historical Insights** - View model year timelines and MSRP trends with interactive visualizations
 
-It is intended for users who wish to research the historical development of automobiles or make well-informed decisions.
+- **Modern UI/UX** - Glassmorphic design with backdrop blur effects, smooth page transitions, and responsive layout
+
+It is intended for users who wish to research vehicle specifications, compare models, or make well-informed purchasing decisions.
 
 ## Appendix
 
@@ -24,61 +26,93 @@ It is intended for users who wish to research the historical development of auto
 
 ```
 /pages
-  LandingPage.jsx         // VIN search and single vehicle data
-  ComparisonPage.jsx      // Compare two vehicles
-  TimelinePage.jsx        // Visual timeline of trims and MSRP
+  LandingPage.jsx         // Vehicle search with autocomplete (VIN or Make/Model)
+  ComparisonPage.jsx      // Compare two vehicles side-by-side
+  TimelinePage.jsx        // Model year timeline and MSRP trends
+
+/components
+  CustomAlert.jsx         // Integrated alert notifications
+
+/hooks
+  useCustomAlert.js       // Custom hook for alert management
 
 /styles
+  App.module.css
   LandingPage.module.css
   ComparisonPage.module.css
   TimelinePage.module.css
+  CustomAlert.module.css
 ```
 
-#### Test VINs to Try
+#### Example Vehicle Searches
 
+**By VIN:**
 - `1GTG6CEN0L1139305` (GMC Canyon 2020)
 - `5UXKR0C5XF0K56785` (BMW X5 2015)
 - `WVGZZZ7PZHD006123` (Volkswagen Touareg 2017)
+
+**By Make/Model** (try typing to see autocomplete):
+- `GMC Canyon`
+- `BMW X5`
+- `Volkswagen Touareg`
+- `Ford F-150`
+
+#### Recent Enhancements
+
+- ✅ Autocomplete dropdown suggestions on all search pages
+- ✅ Glassmorphic UI with backdrop blur effects
+- ✅ Directional page transitions (slide up/down based on navigation)
+- ✅ Custom styled alert notifications
+- ✅ SVG icon-based navigation sidebar
+- ✅ Responsive search bars with exact-width dropdowns
 
 #### Future Ideas
 
 - Add user authentication and save vehicle history
 - Export comparison results as PDF
 - Add live exchange rate for MSRP conversion
-- Add ability to search for Make and Model across all pages
+- Keyboard navigation for autocomplete dropdowns
+- Dark/Light theme toggle
 
 
 ## API Reference
 
-#### Get data by via VIN
+#### Get vehicle data by VIN
 
 ```http
   GET /api/vin/{vin}
 ```
 
-#### Get data via Make and Model
+#### Get vehicle data by Make and Model
 
 ```http
-  GET /api/trims?make={make}&model={model}
+  GET /api/trims?make={make}&model={model}&verbose=yes
 ```
 
 | Parameter  | Type     | Description                          |
 |------------|----------|--------------------------------------|
-| `api_key`  | `string` | "b0cfcdeaacmshfbeaeb3c7c2f25ap129777jsn7bd8637ddc5f" |
-| `vin`      | `string` | "1GTG6CEN0L1139305" |
-| `make`     | `string` | "GMC" |
-| `model`    | `string` | "Canyon" |
-| `year`     | `number` | 2020 |
+| `api_key`  | `string` | **Required**. Your RapidAPI key (stored in `.env`) |
+| `vin`      | `string` | Vehicle Identification Number (e.g., "1GTG6CEN0L1139305") |
+| `make`     | `string` | Vehicle manufacturer (e.g., "GMC") |
+| `model`    | `string` | Vehicle model (e.g., "Canyon") |
+| `year`     | `number` | Model year (e.g., 2020) |
+| `verbose`  | `string` | Set to "yes" for detailed trim information |
+
+**Note:** API keys are never committed to the repository. They are stored securely in the `.env` file.
 
 ## Features
 
-- VIN-Based Vehicle Lookup
+- **Multi-Method Vehicle Lookup** - Search by VIN or Make/Model with real-time autocomplete
 
-- Real-Time Vehicle Comparison
+- **Intelligent Autocomplete** - Dropdown suggestions filtered to 2015-2020 range with instant preview
 
-- Timeline Visualization
+- **Real-Time Vehicle Comparison** - Side-by-side specs with interactive bar charts
 
-- Interactive Charts & UI
+- **Timeline Visualization** - Historical trim count and MSRP trends with Chart.js line graphs
+
+- **Modern Glassmorphic UI** - Backdrop blur effects, smooth animations, and responsive design
+
+- **Custom Alert System** - Integrated modal notifications with auto-dismiss and custom styling
 
 ##  Dependencies
 
